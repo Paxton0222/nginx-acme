@@ -8,11 +8,12 @@ services:
     volumes:
       - nginx_data:/etc/nginx
       - nginx_cert:/acme.sh
+      - ./conf.d:/etc/nginx/conf.d
       - ./renew_certificates.sh:/renew_certificates.sh
     ports:
       - "80:80"
       - "443:443"
-    entrypoint: /renew_certificates.sh
+        #entrypoint: /renew_certificates.sh
 
 volumes:
   nginx_data:
