@@ -10,6 +10,7 @@ services:
       - nginx_cert:/acme.sh
       - ./conf.d:/etc/nginx/conf.d
       - ./renew_certificates.sh:/renew_certificates.sh
+      - ./log:/var/log/nginx
     ports:
       - "80:80"
       - "443:443"
