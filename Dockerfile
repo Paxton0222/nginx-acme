@@ -17,6 +17,7 @@ RUN rm /acme.sh/account.conf
 # 複製 Nginx 配置文件
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY supervisord.conf /etc/supervisord.conf
+COPY renew_certificates.sh /renew_certificates.sh
 
 RUN mkdir -p /run/nginx /etc/nginx /var/lib/nginx /var/log/nginx /var/www/html /etc/nginx/cert
 

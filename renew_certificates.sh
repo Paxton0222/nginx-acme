@@ -2,6 +2,7 @@
 
 if [ ! -f /acme.sh/account.conf ]; then
     echo "第一次啟動"
+    acme.sh --register-account --accountemail $ACME_SH_EMAIL
     acme.sh --update-account --accountemail $ACME_SH_EMAIL
 
     # 將變量轉換為數組
@@ -16,6 +17,7 @@ if [ ! -f /acme.sh/account.conf ]; then
 	acme.sh --issue -d "${DOMAIN}" -d "${WILDCARD_DOMAIN}" --dns "${DNS_API}" --server letsencrypt --log
 
 	mkdir -p /etc/nginx/cert/$DOMAIN
+    mkdir -p /etc/nginx/cert/$WILCARD_DOMAIN
 
 	# 主要域名
 	acme.sh --install-cert -d "${DOMAIN}" \

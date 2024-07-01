@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   nginx:
+    image: paxton0222/nginx-acme
     build: .
     env_file:
       - .env
